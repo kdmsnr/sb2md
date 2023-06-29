@@ -91,7 +91,7 @@ function nodeToMarkdown(node: Node): string {
 export function pageToMarkdown(page: Page): string {
   const lines = page.map((block) => {
     if (block.type === 'title') {
-      return null;// `# ${block.text}`;
+      return `# ${block.text}`;
     }
     if (block.type === 'codeBlock') {
       const headline = `\`\`\`${block.fileName}`;
@@ -136,6 +136,6 @@ export function pageToMarkdown(page: Page): string {
     }
     return `${indent}- ${text}`;
   });
-  lines.shift();
+  //lines.shift();
   return lines.join('\n');
 };
